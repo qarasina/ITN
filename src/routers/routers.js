@@ -1,17 +1,18 @@
 import fastify from "fastify"
+import IndexController from "../controllers";
 
 export default class Routers
 {
     constructor()
     {
         this.server = fastify()
+
+        this.index = new IndexController()
     }
 
-    handle()
+    handle(db)
     {
-        this.server.get('/', (req, res) => {
-            return res.send('Hello World')
-        })
+        this.server.get('/', this.index.index)
     }
 
     listen()

@@ -10,7 +10,7 @@ async function main()
 
     const routers = new Routers()
 
-    routers.handle()
+    routers.handle(db)
     routers.listen()
 }
 
